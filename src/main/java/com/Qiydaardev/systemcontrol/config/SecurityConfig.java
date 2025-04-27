@@ -79,7 +79,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsFilter(){
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(Arrays.asList("http://localhost:5173", CLIENT_URL, "https://systemcontroller2-n819-git-main-qiydaar23s-projects.vercel.app","*"));
+        config.setAllowedOrigins(Arrays.asList("http://localhost:5173", CLIENT_URL, "https://systemcontroller2-n819-git-main-qiydaar23s-projects.vercel.app"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT","DELETE"));
         config.setAllowedHeaders(Arrays.asList("*"));
         config.setAllowCredentials(true);
