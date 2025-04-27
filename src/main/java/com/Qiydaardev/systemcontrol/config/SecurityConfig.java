@@ -39,7 +39,9 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
-        httpSecurity.csrf(AbstractHttpConfigurer::disable)
+        httpSecurity
+
+                .csrf(AbstractHttpConfigurer::disable)
                 .cors(c->c.configurationSource(corsFilter()))
                 .authorizeHttpRequests(request->request.requestMatchers("/auth/**", "/public/**").permitAll()
                         .requestMatchers("/admin/**").hasAnyAuthority("ADMIN")
@@ -75,8 +77,8 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsFilter(){
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(Arrays.asList("http://localhost:5173", CLIENT_URL, "https://systemcontroller2-n819-git-main-qiydaar23s-projects.vercel.app"));
-        config.setAllowedMethods(Arrays.asList("GET", "POST", "*"));
+        config.setAllowedOrigins(Arrays.asList("http://localhost:5173", CLIENT_URL, "https://systemcontroller2-n819-git-main-qiydaar23s-projects.vercel.app","*"));
+        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT","DELETE"));
         config.setAllowedHeaders(Arrays.asList("*"));
         config.setAllowCredentials(true);
 
