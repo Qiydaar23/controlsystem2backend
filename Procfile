@@ -1,1 +1,0 @@
-web: java -jar systemcontrol/target/systemcontrol-0.0.1-SNAPSHOT.jar
